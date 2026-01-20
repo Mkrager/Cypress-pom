@@ -2,7 +2,7 @@ import LoginPage from "../pages/loginPage";
 
 describe("Redmine Login Tests", () => {
   beforeEach(() => {
-    cy.visit("/login");
+    cy.visit("/");
   });
 
   it("should login with valid credentials", () => {
@@ -11,6 +11,17 @@ describe("Redmine Login Tests", () => {
 
     LoginPage.login(username, password);
 
-    cy.get("#loggedas").should("contain.text", username);
+    cy.get(".title").should("contain.text", "Products");
+  });
+
+  it("should not login with invalid credentials", () => {
+    const username = "invalid username";
+    const password = Cypress.env("VALID_USER_PASSWORD");
+
+    LoginPage.login(username, password);
+    cy.get("h3").should(
+      "contain.text",
+      "Epic sadface: Username and password do not match any user in this service",
+    );
   });
 });

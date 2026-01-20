@@ -5,7 +5,7 @@ console.log("BASE_URL:", process.env.BASE_URL);
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: process.env.BASE_URL || "https://www.redmine.org",
+    baseUrl: process.env.BASE_URL,
     chromeWebSecurity: false,
   },
   env: {
