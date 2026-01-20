@@ -1,7 +1,7 @@
 import InventortPage from "../pages/inventoryPage";
 import LoginPage from "../pages/loginPage";
 
-describe("Cart Tests", () => {
+describe("Add and remove from shopping Cart Tests", () => {
   beforeEach(() => {
     LoginPage.loginWithValidData();
   });

@@ -5,21 +5,17 @@ class InventoryPage extends Common {
   backPackRemoveFromCartButton = () => cy.get("#remove-sauce-labs-backpack");
   shoppingCartIcon = () => cy.get(".shopping_cart_link");
 
-  clickAddToCart() {
-    this.click(this.backPackAddToCartButton());
-  }
+  clickAddToCart = () => this.click(this.backPackAddToCartButton());
 
-  clickRemoveFromCart() {
-    this.click(this.backPackRemoveFromCartButton());
-  }
+  clickRemoveFromCart = () => this.click(this.backPackRemoveFromCartButton());
 
-  cartIconHasItems() {
+  clickShoppingCartIcon = () => this.click(this.shoppingCartIcon());
+
+  cartIconHasItems = () =>
     this.shoppingCartIcon().find(".shopping_cart_badge").should("exist");
-  }
 
-  cartIconIsEmpty() {
+  cartIconIsEmpty = () =>
     this.shoppingCartIcon().find(".shopping_cart_badge").should("not.exist");
-  }
 }
 
 export default new InventoryPage();
