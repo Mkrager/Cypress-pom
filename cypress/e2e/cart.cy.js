@@ -29,4 +29,16 @@ describe("Shopping cart tests", () => {
       "Thank you for your order!",
     );
   });
+
+  it("should throw empty lastName validation error when create order", () => {
+    InventoryPage.clickAddToCart();
+    InventoryPage.clickShoppingCartIcon();
+    ShoppingCartPage.clickCheckout();
+
+    ShoppingCartPage.enterFirstName("firstName");
+    ShoppingCartPage.enterPostalCode("postalCode");
+    ShoppingCartPage.clickContinue();
+
+    cy.get("h3").should("contain.text", "Error: Last Name is required");
+  });
 });
