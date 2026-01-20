@@ -1,6 +1,6 @@
 import LoginPage from "../pages/loginPage";
 
-describe("Redmine Login Tests", () => {
+describe("Login Tests", () => {
   beforeEach(() => {
     cy.visit("/");
   });

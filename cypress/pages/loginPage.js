@@ -23,6 +23,13 @@ class LoginPage extends Common {
     this.enterPassword(password);
     this.clickLogin();
   }
+
+  loginWithValidData() {
+    super.openPage("/");
+    this.enterUsername(Cypress.env("VALID_USER_LOGIN"));
+    this.enterPassword(Cypress.env("VALID_USER_PASSWORD"));
+    this.clickLogin();
+  }
 }
 
 export default new LoginPage();
