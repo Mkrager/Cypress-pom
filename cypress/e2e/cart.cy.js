@@ -1,6 +1,7 @@
 import LoginPage from "../pages/loginPage";
 import InventoryPage from "../pages/inventoryPage";
 import ShoppingCartPage from "../pages/shoppingCartPage";
+import HeaderSection from "../sections/headerSection";
 
 describe("Shopping cart tests", () => {
   beforeEach(() => {
@@ -8,14 +9,14 @@ describe("Shopping cart tests", () => {
   });
 
   it("should return to inventory from cart", () => {
-    InventoryPage.clickShoppingCartIcon();
+    HeaderSection.clickShoppingCartIcon();
     ShoppingCartPage.clickContinueShoppingButton();
     cy.url().should("include", "/inventory.html");
   });
 
   it("should succesffuly create order", () => {
     InventoryPage.clickAddToCart();
-    InventoryPage.clickShoppingCartIcon();
+    HeaderSection.clickShoppingCartIcon();
     ShoppingCartPage.clickCheckout();
 
     ShoppingCartPage.enterFirstName("firstName");
@@ -32,7 +33,7 @@ describe("Shopping cart tests", () => {
 
   it("should throw empty lastName validation error when create order", () => {
     InventoryPage.clickAddToCart();
-    InventoryPage.clickShoppingCartIcon();
+    HeaderSection.clickShoppingCartIcon();
     ShoppingCartPage.clickCheckout();
 
     ShoppingCartPage.enterFirstName("firstName");

@@ -1,5 +1,6 @@
 import InventortPage from "../pages/inventoryPage";
 import LoginPage from "../pages/loginPage";
+import HeaderSection from "../sections/headerSection";
 
 describe("Add and remove from shopping Cart Tests", () => {
   beforeEach(() => {
@@ -8,13 +9,13 @@ describe("Add and remove from shopping Cart Tests", () => {
 
   it("should add item to cart", () => {
     InventortPage.clickAddToCart();
-    InventortPage.cartIconHasItems();
+    HeaderSection.cartIconHasItems();
   });
 
   it("should remove item from cart", () => {
     InventortPage.clickAddToCart();
     InventortPage.clickRemoveFromCart();
-    InventortPage.cartIconIsEmpty();
+    HeaderSection.cartIconIsEmpty();
   });
 
   it("should sort products by z-a", () => {
