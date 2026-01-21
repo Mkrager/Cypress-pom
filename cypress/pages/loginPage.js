@@ -4,7 +4,6 @@ class LoginPage extends Common {
   usernameField = () => cy.get("#user-name");
   passwordField = () => cy.get("#password");
   loginButton = () => cy.get("#login-button");
-  errorMessage = () => cy.get(".flash.error");
 
   enterUsername = (username) => this.type(this.usernameField(), username);
 

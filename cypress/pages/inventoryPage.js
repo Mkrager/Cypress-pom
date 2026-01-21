@@ -5,11 +5,19 @@ class InventoryPage extends Common {
   backPackRemoveFromCartButton = () => cy.get("#remove-sauce-labs-backpack");
   shoppingCartIcon = () => cy.get(".shopping_cart_link");
 
+  productSortSelect() {
+    return cy.get(".product_sort_container");
+  }
+
   clickAddToCart = () => this.click(this.backPackAddToCartButton());
 
   clickRemoveFromCart = () => this.click(this.backPackRemoveFromCartButton());
 
   clickShoppingCartIcon = () => this.click(this.shoppingCartIcon());
+
+  selectProductSort(valueOrText) {
+    this.productSortSelect().select(valueOrText);
+  }
 
   cartIconHasItems = () =>
     this.shoppingCartIcon().find(".shopping_cart_badge").should("exist");
