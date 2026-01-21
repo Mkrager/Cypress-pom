@@ -11,7 +11,7 @@ describe("Login Tests", () => {
 
     LoginPage.login(username, password);
 
-    cy.get(".title").should("contain.text", "Products");
+    LoginPage.assertText(".title", "Products");
   });
 
   it("should not login with invalid credentials", () => {
@@ -19,8 +19,9 @@ describe("Login Tests", () => {
     const password = Cypress.env("VALID_USER_PASSWORD");
 
     LoginPage.login(username, password);
-    cy.get("h3").should(
-      "contain.text",
+
+    LoginPage.assertText(
+      "h3",
       "Epic sadface: Username and password do not match any user in this service",
     );
   });

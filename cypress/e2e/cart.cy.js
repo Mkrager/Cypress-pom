@@ -11,6 +11,7 @@ describe("Shopping cart tests", () => {
   it("should return to inventory from cart", () => {
     HeaderSection.clickShoppingCartIcon();
     ShoppingCartPage.clickContinueShoppingButton();
+
     cy.url().should("include", "/inventory.html");
   });
 
@@ -25,8 +26,8 @@ describe("Shopping cart tests", () => {
     ShoppingCartPage.clickContinue();
     ShoppingCartPage.clickFinish();
 
-    cy.get(".complete-header").should(
-      "contain.text",
+    ShoppingCartPage.assertText(
+      ".complete-header",
       "Thank you for your order!",
     );
   });
@@ -40,6 +41,6 @@ describe("Shopping cart tests", () => {
     ShoppingCartPage.enterPostalCode("postalCode");
     ShoppingCartPage.clickContinue();
 
-    cy.get("h3").should("contain.text", "Error: Last Name is required");
+    ShoppingCartPage.assertText("h3", "Error: Last Name is required");
   });
 });

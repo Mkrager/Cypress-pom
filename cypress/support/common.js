@@ -11,12 +11,8 @@ class Common {
     element.clear().type(text);
   }
 
-  assertVisible(element) {
-    element.should("be.visible");
-  }
-
-  assertText(element, text) {
-    element.should("have.text", text);
+  assertText(selector, text) {
+    cy.get(selector).should("have.text", text);
   }
 }
 
